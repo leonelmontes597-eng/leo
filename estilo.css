@@ -5,7 +5,7 @@
   --calido: #e8825b;
   --luz: #f6d08a;
   --claro: #fdf1e7;
-  --tenue: rgba(253, 241, 231, 0.72);
+  --tenue: rgba(253, 241, 231, 0.78);
   --borde: rgba(253, 241, 231, 0.22);
 }
 
@@ -21,7 +21,7 @@ body {
   justify-content: center;
   padding: 24px;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Cielo del atardecer */
@@ -61,11 +61,11 @@ body {
 .tarjeta {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  padding: 40px 30px 36px;
+  max-width: 440px;
+  margin: 40px 0;
+  padding: 42px 32px 38px;
   border-radius: 26px;
-  text-align: center;
-  background: rgba(36, 20, 54, 0.32);
+  background: rgba(36, 20, 54, 0.34);
   border: 1px solid var(--borde);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -78,58 +78,74 @@ body {
   to   { opacity: 1; transform: none; }
 }
 
-.para {
-  font-size: 0.95rem;
-  color: var(--tenue);
-  margin-bottom: 18px;
-}
-.nombre {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.15rem;
-  color: var(--luz);
-}
-
-.pregunta {
+.saludo {
   font-family: 'Fraunces', serif;
   font-weight: 500;
-  font-size: 2rem;
-  line-height: 1.18;
-  margin-bottom: 20px;
+  font-size: 2.1rem;
+  line-height: 1.2;
+  color: var(--luz);
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 .mensaje {
   font-weight: 300;
-  font-size: 1.05rem;
+  font-size: 1.04rem;
   line-height: 1.75;
   color: var(--claro);
-  margin-bottom: 28px;
+  text-align: left;
+  margin-bottom: 16px;
 }
 
-.detalles {
+/* Versículo */
+.versiculo {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 26px;
+  gap: 8px;
+  margin: 22px 0;
+  padding: 18px 20px;
+  border-left: 3px solid var(--calido);
+  border-radius: 6px 14px 14px 6px;
+  background: rgba(246, 208, 138, 0.08);
+  text-align: center;
 }
-.dato {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 1rem;
-  color: var(--claro);
-  text-align: left;
-}
-.ico { font-size: 1.25rem; width: 1.6rem; text-align: center; }
-
-.cuenta {
-  font-family: 'Fraunces', serif;
-  font-size: 1.05rem;
+.versiculo .ref {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
   color: var(--luz);
-  margin-bottom: 24px;
+}
+.versiculo .texto {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.55;
+  color: var(--claro);
+}
+
+/* Pregunta destacada */
+.pregunta {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  color: var(--luz);
+  text-align: center;
+  margin: 28px 0 20px;
+}
+
+.firma {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--tenue);
+  text-align: right;
+  margin: 24px 0 28px;
 }
 
 .acepto {
+  display: block;
+  margin: 0 auto;
   font-family: 'Mulish', sans-serif;
   font-weight: 700;
   font-size: 1.05rem;
@@ -146,7 +162,7 @@ body {
 .acepto:active { transform: translateY(0); }
 .acepto:focus-visible { outline: 3px solid var(--claro); outline-offset: 3px; }
 
-.respuesta { margin-top: 8px; }
+.respuesta { margin-top: 22px; text-align: center; }
 .respuesta-titulo {
   font-family: 'Fraunces', serif;
   font-size: 1.5rem;
@@ -170,7 +186,8 @@ body {
 }
 
 @media (min-width: 480px) {
-  .pregunta { font-size: 2.3rem; }
+  .saludo { font-size: 2.4rem; }
+  .pregunta { font-size: 1.95rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
