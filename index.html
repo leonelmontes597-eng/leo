@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Una invitación para ti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <div class="cielo" aria-hidden="true"></div>
+  <div class="brillo" aria-hidden="true"></div>
+  <div class="chispas" id="chispas" aria-hidden="true"></div>
+
+  <main class="tarjeta">
+    <!-- ✏️ EDITA: nombre de ella -->
+    <p class="para">Para <span class="nombre">ti</span></p>
+
+    <!-- ✏️ EDITA la pregunta -->
+    <h1 class="pregunta">¿Me acompañas a ver caer la tarde?</h1>
+
+    <!-- ✏️ EDITA tu mensaje -->
+    <p class="mensaje">
+      Hay días normales que se vuelven especiales solo por con quién los pasas.
+      Me encantaría que el próximo lo pasáramos juntos.
+    </p>
+
+    <div class="detalles">
+      <!-- ✏️ EDITA fecha, hora y lugar -->
+      <p class="dato"><span class="ico">🌅</span>Sábado 20 de septiembre</p>
+      <p class="dato"><span class="ico">🕕</span>6:00 de la tarde</p>
+      <p class="dato"><span class="ico">📍</span>Te paso el lugar por mensaje</p>
+    </div>
+
+    <p class="cuenta" id="cuenta" hidden></p>
+
+    <button class="acepto" id="acepto" type="button">Sí, acepto</button>
+
+    <div class="respuesta" id="respuesta" hidden>
+      <p class="respuesta-titulo">Me hiciste el día 🥹</p>
+      <p class="respuesta-texto">Entonces está hecho. Nos vemos pronto.</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

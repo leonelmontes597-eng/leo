@@ -1,0 +1,179 @@
+:root {
+  --noche: #241436;
+  --crepusculo: #5b2a52;
+  --rosa: #b0466b;
+  --calido: #e8825b;
+  --luz: #f6d08a;
+  --claro: #fdf1e7;
+  --tenue: rgba(253, 241, 231, 0.72);
+  --borde: rgba(253, 241, 231, 0.22);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Mulish', system-ui, sans-serif;
+  color: var(--claro);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cielo del atardecer */
+.cielo {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--noche) 0%,
+    var(--crepusculo) 42%,
+    var(--rosa) 68%,
+    var(--calido) 86%,
+    var(--luz) 100%
+  );
+  z-index: -2;
+}
+
+/* Sol/brillo que sube al cargar */
+.brillo {
+  position: fixed;
+  left: 50%;
+  bottom: -140px;
+  width: 460px;
+  height: 460px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(246, 208, 138, 0.9), rgba(246, 208, 138, 0) 62%);
+  z-index: -1;
+  animation: amanecer 2.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes amanecer {
+  from { transform: translateX(-50%) translateY(120px); opacity: 0; }
+  to   { transform: translateX(-50%) translateY(0);      opacity: 1; }
+}
+
+/* Tarjeta */
+.tarjeta {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px 36px;
+  border-radius: 26px;
+  text-align: center;
+  background: rgba(36, 20, 54, 0.32);
+  border: 1px solid var(--borde);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 30px 70px rgba(20, 8, 30, 0.45);
+  animation: entrar 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(26px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+.para {
+  font-size: 0.95rem;
+  color: var(--tenue);
+  margin-bottom: 18px;
+}
+.nombre {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--luz);
+}
+
+.pregunta {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.18;
+  margin-bottom: 20px;
+}
+
+.mensaje {
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--claro);
+  margin-bottom: 28px;
+}
+
+.detalles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.dato {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: var(--claro);
+  text-align: left;
+}
+.ico { font-size: 1.25rem; width: 1.6rem; text-align: center; }
+
+.cuenta {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  color: var(--luz);
+  margin-bottom: 24px;
+}
+
+.acepto {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--noche);
+  background: linear-gradient(135deg, var(--luz), var(--calido));
+  border: none;
+  border-radius: 999px;
+  padding: 16px 44px;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(232, 130, 91, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.acepto:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(232, 130, 91, 0.55); }
+.acepto:active { transform: translateY(0); }
+.acepto:focus-visible { outline: 3px solid var(--claro); outline-offset: 3px; }
+
+.respuesta { margin-top: 8px; }
+.respuesta-titulo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  color: var(--luz);
+  margin-bottom: 8px;
+}
+.respuesta-texto { color: var(--tenue); }
+
+/* Chispas ascendentes */
+.chispas { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
+.chispa {
+  position: absolute;
+  bottom: -20px;
+  border-radius: 50%;
+  background: var(--luz);
+  box-shadow: 0 0 8px var(--luz);
+  animation: flotar linear forwards;
+}
+@keyframes flotar {
+  to { transform: translateY(-108vh); opacity: 0; }
+}
+
+@media (min-width: 480px) {
+  .pregunta { font-size: 2.3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brillo, .tarjeta { animation: none; }
+  .chispas { display: none; }
+}
